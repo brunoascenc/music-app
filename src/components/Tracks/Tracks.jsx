@@ -1,6 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addTrack } from '../../redux/favorites/favorites-actions';
 
 const Tracks = ({ data }) => {
+  const dispatch = useDispatch();
+
   return (
     <ul>
       {data &&
@@ -15,7 +19,9 @@ const Tracks = ({ data }) => {
               <audio controls>
                 <source src={track.preview} type="audio/mpeg" />
               </audio>
-              <button>Adicionar a lista de favoritos</button>
+              <button onClick={() => dispatch(addTrack(track))}>
+                Adicionar a lista de favoritos
+              </button>
             </li>
           );
         })}
