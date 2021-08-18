@@ -15,12 +15,12 @@ export const fetchSearchFailure = (message) => ({
   payload: message,
 });
 
-export const fetchSearchData = (search) => {
+export const fetchSearchData = (search, pageLimit) => {
   return (dispatch) => {
     dispatch(fetchSearchStart());
     axios
       .get(
-        ` https://afternoon-lowlands-23813.herokuapp.com/https://api.deezer.com/search?q=${search}`
+        ` https://afternoon-lowlands-23813.herokuapp.com/https://api.deezer.com/search?q=${search}&index=0&limit=${pageLimit}`
       )
       .then((res) => {
         dispatch(fetchSearchSuccess(res.data.data));

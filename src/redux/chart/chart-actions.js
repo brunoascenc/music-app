@@ -15,18 +15,17 @@ export const fetchChartFailure = (message) => ({
   payload: message,
 });
 
-export const fetchTopChartStart = () => {
+export const fetchTopChartStart = (pageLimit) => {
   return (dispatch) => {
-    dispatch(fetchChartStart);
+    dispatch(fetchChartStart());
     axios
       .get(
-        'https://afternoon-lowlands-23813.herokuapp.com/https://api.deezer.com/chart'
+        `https://afternoon-lowlands-23813.herokuapp.com/https://api.deezer.com/chart/0/tracks&index=0&limit=${pageLimit}`
       )
       .then((res) => {
         const data = res.data;
-        const tracks = data.tracks;
-        // console.log(tracks);
-        dispatch(fetchChartSuccess(tracks.data));
+        const tracks = data.data;
+        dispatch(fetchChartSuccess(tracks));
       })
       .catch((err) => {
         dispatch(fetchChartFailure(err.message));
