@@ -3,7 +3,7 @@ import TopChart from '../../components/TopChart/TopChart';
 
 const Home = () => {
   return (
-    <div>
+    <div className="container">
       <TopChart />
     </div>
   );

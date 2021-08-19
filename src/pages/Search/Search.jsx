@@ -15,7 +15,8 @@ const Search = (props) => {
   }, [dispatch, searchQuery, pageNumber]);
 
   return (
-    <div>
+    <div className="container">
+      <h2 className="section-title">Resultados</h2>
       <Tracks pageNumber={setPageNumber} loading={loading} data={search} />
     </div>
   );
