@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HeaderComponent, SearchInput, SearchButton } from './HeaderStyles';
+import { AiOutlineSearch } from 'react-icons/ai';
+import {
+  HeaderComponent,
+  SearchInput,
+  SearchBox,
+  HeaderElements,
+  // Nav,
+} from './HeaderStyles';
 
 const Header = () => {
   const [search, setSearch] = useState('');
   return (
     <HeaderComponent>
-      <h1>Logo</h1>
-      <SearchInput
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <SearchButton>
-        <Link to={`/search=${search}`}>Search</Link>
-      </SearchButton>
+      <HeaderElements className="container">
+        <SearchBox>
+          <SearchInput
+            type="text"
+            placeholder="Pesquise por músicas, artistas, albums..."
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Link to={`/search=${search}`}>
+            <AiOutlineSearch className="search-icon" />
+          </Link>
+        </SearchBox>
+        {/* <Nav>
+          <Link to="/favorites">Minha Playlist</Link>
+        </Nav> */}
+      </HeaderElements>
     </HeaderComponent>
   );
 };
