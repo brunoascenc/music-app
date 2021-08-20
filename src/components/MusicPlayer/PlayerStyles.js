@@ -15,6 +15,8 @@ export const PlayerContainer = styled.div`
 
   .player {
     background: transparent;
+    padding-left: 2%;
+    padding-right: 2%;
   }
   .rhap_volume-filled {
     background: ${(props) =>

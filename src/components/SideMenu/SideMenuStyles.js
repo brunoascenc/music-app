@@ -64,7 +64,7 @@ export const Nav = styled.nav`
 
 export const Link = styled(NavLink)`
   font-size: 22px;
-  color: ${(props) => (props.linkoff ? '#1d1d1f' : '#545359')};
+  color: ${(props) => (props.linkoff ? '#1d1d1f' : props.theme.primaryColor)};
   display: flex;
   line-height: 55px;
   align-items: center;

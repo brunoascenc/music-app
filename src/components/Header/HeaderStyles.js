@@ -59,15 +59,3 @@ export const SearchBox = styled.div`
     }
   }
 `;
-
-export const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  a {
-    margin-top: 5px;
-    background: #61d49a;
-    color: #121212;
-    padding: 6px 12px;
-    border-radius: 16px;
-  }
-`;
