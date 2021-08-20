@@ -24,6 +24,10 @@ Para iniciar o servidor:
 
 `npm start`
 
+Para acessar:
+
+`http://localhost:3000/`
+
 ## Tecnologias utilizadas
 
 - [Deezer API](https://developers.deezer.com/api)
