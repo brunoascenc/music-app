@@ -8,7 +8,7 @@ const Search = (props) => {
   const search = useSelector((state) => state.search.results);
   const loading = useSelector((state) => state.search.loading);
   const searchQuery = props.match.params.pathname;
-  const [pageNumber, setPageNumber] = useState(10);
+  const [pageNumber, setPageNumber] = useState(30);
 
   useEffect(() => {
     dispatch(fetchSearchData(searchQuery, pageNumber));
