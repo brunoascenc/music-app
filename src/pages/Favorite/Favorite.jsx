@@ -1,65 +1,34 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { removeTrack } from '../../redux/favorites/favorites-actions';
-import Deezer from '../../images/deezer-logo.png';
-import { BsFillPlayFill } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
-import {
-  List,
-  ListItem,
-  Cover,
-  TrackInfo,
-  ActionLinks,
-  PlayButton,
-  Span,
-} from '../../components/Tracks/TracksStyles';
-import { playTrack } from '../../redux/player/player-actions';
-import useTimeConvert from '../../hooks/useTimeConvert.js';
+import Tracks from '../../components/Tracks/Tracks';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const EmptyLit = styled.div`
+  a {
+    color: ${(props) => props.theme.primaryColor};
+  }
+`;
 
 const Favorite = () => {
   const favorites = useSelector((state) => state.favorites.trackList);
-  const dispatch = useDispatch();
-  const [timeConvert] = useTimeConvert();
 
   return (
     <div className="container">
       <h2 className="section-title">Músicas Favoritas</h2>
-      <List>
-        {favorites &&
-          favorites.map((track) => {
-            return (
-              <ListItem key={track.id}>
-                <Cover onClick={() => dispatch(playTrack(track.preview))}>
-                  <div>
-                    <img
-                      src={track.album.cover_medium}
-                      alt={track.album.title}
-                    />
-                    <PlayButton>
-                      <BsFillPlayFill />
-                    </PlayButton>
-                  </div>
-                  <TrackInfo>
-                    <Span titleTrack>{track.title}</Span>
-                    <Span>{track.artist.name}</Span>
-                  </TrackInfo>
-                </Cover>
-
-                <ActionLinks>
-                  <div>
-                    <Span>{timeConvert(track.duration)}</Span>
-                    <button onClick={() => dispatch(removeTrack(track))}>
-                      <AiFillDelete />
-                    </button>
-                  </div>
-                  <a className="deezer-link" href={track.link}>
-                    <img src={Deezer} alt={track.link} />
-                  </a>
-                </ActionLinks>
-              </ListItem>
-            );
-          })}
-      </List>
+      {favorites.length === 0 ? (
+        <EmptyLit>
+          <Link to="/">Adicione suas músicas favoritas</Link>
+        </EmptyLit>
+      ) : (
+        <Tracks
+          handleClick={removeTrack}
+          data={favorites}
+          clickIcon={<AiFillDelete />}
+        />
+      )}
     </div>
   );
 };

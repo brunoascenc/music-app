@@ -1,7 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addTrack } from '../../redux/favorites/favorites-actions';
-import { AiFillStar } from 'react-icons/ai';
 import { BsFillPlayFill } from 'react-icons/bs';
 import Deezer from '../../images/deezer-logo.png';
 import {
@@ -17,21 +15,27 @@ import { playTrack } from '../../redux/player/player-actions';
 import Spinner from '../Spinner/Spinner';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import useTimeConvert from '../../hooks/useTimeConvert.js';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import { useLocation } from 'react-router-dom';
 
-const Tracks = ({ data, loading, pageNumber }) => {
+const Tracks = ({ data, loading, pageNumber, handleClick, clickIcon }) => {
   const dispatch = useDispatch();
   const [lastTrackElement] = useInfiniteScroll(loading, pageNumber);
-
   const [timeConvert] = useTimeConvert();
+  const location = useLocation();
 
   return (
     <List>
       {data &&
         data.map((track, index) => {
+          //último elemento
           if (data.length === index + 1) {
             return (
-              <ListItem ref={lastTrackElement} key={track.id}>
+              <ListItem
+                ref={
+                  location.pathname === '/favorites' ? null : lastTrackElement
+                }
+                key={track.id}
+              >
                 <Cover onClick={() => dispatch(playTrack(track.preview))}>
                   <div>
                     <img
@@ -51,8 +55,8 @@ const Tracks = ({ data, loading, pageNumber }) => {
                 <ActionLinks>
                   <div>
                     <Span>{timeConvert(track.duration)}</Span>
-                    <button onClick={() => dispatch(addTrack(track))}>
-                      <AiFillStar />
+                    <button onClick={() => dispatch(handleClick(track))}>
+                      {clickIcon}
                     </button>
                   </div>
                   <a className="deezer-link" href={track.link}>
@@ -83,8 +87,8 @@ const Tracks = ({ data, loading, pageNumber }) => {
                 <ActionLinks>
                   <div>
                     <Span>{timeConvert(track.duration)}</Span>
-                    <button onClick={() => dispatch(addTrack(track))}>
-                      <AiFillStar />
+                    <button onClick={() => dispatch(handleClick(track))}>
+                      {clickIcon}
                     </button>
                   </div>
                   <a className="deezer-link" href={track.link}>

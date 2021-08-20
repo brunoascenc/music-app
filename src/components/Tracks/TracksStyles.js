@@ -23,7 +23,6 @@ export const PlayButton = styled.button`
   position: absolute;
   top: 40%;
   left: 35%;
-
   opacity: 0;
   cursor: pointer;
   background: none;
@@ -107,7 +106,7 @@ export const Span = styled.span`
   width: ${(props) => (props.titleTrack ? '160px' : 'unset')};
   font-size: ${(props) => (props.titleTrack ? '15px' : '12px')};
   margin-bottom: ${(props) => (props.titleTrack ? '5px' : '0')};
-  color: ${(props) => (props.titleTrack ? '#d3dbd5' : '#857676')};
+  color: ${(props) => (props.titleTrack ? '#cccac4' : '#857676')};
   @media screen and (max-width: 480px) {
     font-size: ${(props) => (props.titleTrack ? '13px' : '10px')};
     width: ${(props) => (props.titleTrack ? '100px' : 'unset')};
