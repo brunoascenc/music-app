@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
-export const HeaderComponent = styled.header`
-  display: flex;
+export const HeaderComponent = styled.div`
   height: 75px;
+  margin-left: 15vw;
+  z-index: 1;
+  @media screen and (max-width: 1270px) {
+    margin-left: 190px;
+  }
+  @media screen and (max-width: 820px) {
+    margin-left: 0;
+  }
 `;
 
 export const HeaderElements = styled.div`
@@ -11,40 +18,45 @@ export const HeaderElements = styled.div`
   position: fixed;
   top: 0;
   height: 75px;
-  background: #ffffff;
-  justify-content: space-between;
+  background: #050505;
   width: 100%;
-  /* border-bottom: solid 1px #ded1d1; */
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-
-  h1 {
-    margin-right: 25px;
-    font-family: 'Hammersmith One', sans-serif;
-    color: #61d49a;
-    font-size: 40px;
-    letter-spacing: 1px;
-  }
+  border-bottom: solid 1px #0f0f0f;
+  padding: 0;
+  z-index: 1;
 `;
 
 export const SearchInput = styled.input`
-  background: #f2eded;
-  padding: 12px 16px;
-  border-radius: 24px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  padding: 25px 68px;
+  height: 75px;
   border: none;
-  width: 600px;
+  width: 700px;
+  background: transparent;
+  color: #ebe1e1;
+  &:focus {
+    background: linear-gradient(to right, #1a1717, #050505);
+  }
+  @media screen and (max-width: 1270px) {
+    padding: 25px 40px;
+  }
+  @media screen and (max-width: 820px) {
+    padding: 25px 20px;
+  }
 `;
 
 export const SearchBox = styled.div`
   position: relative;
   .search-icon {
     position: absolute;
-    right: 13px;
+    right: 200px;
     font-size: 20px;
-    top: 9px;
-    color: #332f2f;
+    top: 26px;
+    color: #4d4646;
+    @media screen and (max-width: 820px) {
+      right: 300px;
+    }
+    @media screen and (max-width: 820px) {
+      right: 400px;
+    }
   }
 `;
 

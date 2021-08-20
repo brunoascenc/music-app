@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const SideNav = styled.aside`
   position: fixed;
@@ -6,40 +7,46 @@ export const SideNav = styled.aside`
   left: 0;
   height: 100vh;
   width: 15vw;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 90px 15px 5px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #ffffff;
+  background: #050505;
   padding-left: 2%;
-  border-right: solid 1px #f2eded;
+  border-right: solid 1px #0f0f0f;
+  @media screen and (max-width: 1270px) {
+    width: 191px;
+  }
   h1 {
     margin-top: 25px;
     font-family: 'Righteous', cursive;
     font-size: 30px;
-    letter-spacing: 1px;
-    color: #141313;
+    letter-spacing: 2px;
+    color: #e0d7d7;
+  }
+  @media screen and (max-width: 820px) {
+    left: ${(props) => (props.openMenu === true ? '0' : '-100%')};
+    z-index: 10;
+    width: 40vw;
+    padding-left: 5%;
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    align-items: center;
+    padding: 0;
+  }
+  span {
+    color: #1d1d1f;
+    font-size: 10px;
   }
 `;
 
 export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  a {
-    font-weight: bold;
-    font-size: 23px;
-    color: #141313;
-    display: flex;
-    line-height: 60px;
-    align-items: center;
-    position: relative;
-    .nav-icon {
-      margin-right: 15px;
-      color: #454141;
-    }
+  .nav-icon {
+    margin-right: 15px;
   }
-
   .is-active {
     color: #745fc9;
     &::after {
@@ -51,16 +58,32 @@ export const Nav = styled.nav`
       bottom: 12px;
       left: -15px;
     }
-    .nav-icon {
-      color: #745fc9;
-    }
   }
+`;
 
-  .disabled {
-    color: #d3d0db;
-    pointer-events: none;
-    .nav-icon {
-      color: #d3d0db;
-    }
+export const Link = styled(NavLink)`
+  font-size: 22px;
+  color: ${(props) => (props.linkoff ? '#1d1d1f' : '#545359')};
+  display: flex;
+  line-height: 55px;
+  align-items: center;
+  position: relative;
+  pointer-events: ${(props) => (props.linkoff ? 'none' : 'unset')};
+  transition: 0.1s ease;
+  &:hover {
+    opacity: 0.6;
+  }
+`;
+
+export const MobileMenu = styled.div`
+  display: none;
+  font-size: 22px;
+
+  @media screen and (max-width: 820px) {
+    display: block;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 10;
   }
 `;
