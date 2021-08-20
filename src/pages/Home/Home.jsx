@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h2 className="section-title">Top Charts</h2>
+      <h2 className="section-title">Mais tocadas</h2>
       <Tracks pageNumber={setPageNumber} loading={loading} data={chart} />
     </div>
   );

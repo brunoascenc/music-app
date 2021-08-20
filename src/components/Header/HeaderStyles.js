@@ -18,7 +18,7 @@ export const HeaderElements = styled.div`
   position: fixed;
   top: 0;
   height: 75px;
-  background: #050505;
+  background: ${(props) => props.theme.darkerBg};
   width: 100%;
   border-bottom: solid 1px #0f0f0f;
   padding: 0;

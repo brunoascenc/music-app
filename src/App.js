@@ -6,19 +6,28 @@ import Home from './pages/Home/Home';
 import Favorite from './pages/Favorite/Favorite';
 import SideMenu from './components/SideMenu/SideMenu';
 import MusicPlayer from './components/MusicPlayer/MusicPlayer';
+import { ThemeProvider } from 'styled-components';
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyle />
-      <Header />
-      <SideMenu />
-      <MusicPlayer />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/search=:pathname?" component={Search} />
-        <Route path="/favorites" component={Favorite} />
-      </Switch>
+      <ThemeProvider
+        theme={{
+          primaryColor: '#e0d7d7',
+          darkerBg: '#050505',
+          mainPurple: '#745fc9',
+        }}
+      >
+        <GlobalStyle />
+        <Header />
+        <SideMenu />
+        <MusicPlayer />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/search=:pathname?" component={Search} />
+          <Route path="/favorites" component={Favorite} />
+        </Switch>
+      </ThemeProvider>
     </div>
   );
 }

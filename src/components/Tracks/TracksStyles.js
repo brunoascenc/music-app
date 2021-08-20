@@ -90,7 +90,7 @@ export const ActionLinks = styled(TrackInfo)`
     border: none;
     font-size: 22px;
     margin-left: 15px;
-    color: #745fc9;
+    color: ${(props) => props.theme.mainPurple};
     margin-top: 1px;
     transition: 0.1s ease;
     &:hover {

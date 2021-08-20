@@ -17,10 +17,12 @@ import { playTrack } from '../../redux/player/player-actions';
 import Spinner from '../Spinner/Spinner';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import useTimeConvert from '../../hooks/useTimeConvert.js';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Tracks = ({ data, loading, pageNumber }) => {
   const dispatch = useDispatch();
   const [lastTrackElement] = useInfiniteScroll(loading, pageNumber);
+
   const [timeConvert] = useTimeConvert();
 
   return (

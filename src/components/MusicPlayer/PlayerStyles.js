@@ -4,7 +4,7 @@ import 'react-h5-audio-player/lib/styles.css';
 export const PlayerContainer = styled.div`
   display: flex;
   align-items: center;
-  background: #050505;
+  background: ${(props) => props.theme.darkerBg};
   width: 100%;
   height: 100px;
   position: fixed;
@@ -17,10 +17,11 @@ export const PlayerContainer = styled.div`
     background: transparent;
   }
   .rhap_volume-filled {
-    background: ${(props) => (props.trackUrl === '' ? '#757171' : '#745fc9')};
+    background: ${(props) =>
+      props.trackUrl === '' ? '#757171' : props.theme.mainPurple};
   }
   .rhap_progress-filled {
-    background-color: #745fc9;
+    background-color: ${(props) => props.theme.mainPurple};
   }
 
   .rhap_time {
@@ -44,6 +45,7 @@ export const PlayerContainer = styled.div`
 
   .rhap_volume-indicator,
   .rhap_progress-indicator {
-    background: ${(props) => (props.trackUrl === '' ? '#757171' : '#745fc9')};
+    background: ${(props) =>
+      props.trackUrl === '' ? '#757171' : props.theme.mainPurple};
   }
 `;

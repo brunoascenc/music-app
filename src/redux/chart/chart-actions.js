@@ -1,5 +1,6 @@
 import ChartActionTypes from './chart-types';
 import axios from 'axios';
+import { useState } from 'react';
 
 export const fetchChartStart = () => ({
   type: ChartActionTypes.FETCH_CHART_START,

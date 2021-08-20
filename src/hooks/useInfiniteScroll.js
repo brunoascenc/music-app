@@ -8,6 +8,7 @@ const useInfiniteScroll = (loading, pageNumber) => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
+          console.log('intersect');
           pageNumber((prevPageNumber) => prevPageNumber + 10);
         }
       });

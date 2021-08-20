@@ -10,9 +10,10 @@ export const SideNav = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #050505;
+  background: ${(props) => props.theme.darkerBg};
   padding-left: 2%;
   border-right: solid 1px #0f0f0f;
+  transition: 0.2s ease-in-out;
   @media screen and (max-width: 1270px) {
     width: 191px;
   }
@@ -21,7 +22,7 @@ export const SideNav = styled.aside`
     font-family: 'Righteous', cursive;
     font-size: 30px;
     letter-spacing: 2px;
-    color: #e0d7d7;
+    color: ${(props) => props.theme.primaryColor};
   }
   @media screen and (max-width: 820px) {
     left: ${(props) => (props.openMenu === true ? '0' : '-100%')};
@@ -48,12 +49,12 @@ export const Nav = styled.nav`
     margin-right: 15px;
   }
   .is-active {
-    color: #745fc9;
+    color: ${(props) => props.theme.mainPurple};
     &::after {
       content: '';
       width: 5px;
       height: 35px;
-      background: #745fc9;
+      background: ${(props) => props.theme.mainPurple};
       position: absolute;
       bottom: 12px;
       left: -15px;
