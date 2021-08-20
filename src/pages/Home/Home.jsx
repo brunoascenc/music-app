@@ -9,7 +9,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const chart = useSelector((state) => state.chart.results);
   const loading = useSelector((state) => state.chart.loading);
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(20);
 
   useEffect(() => {
     dispatch(fetchTopChartStart(pageNumber));
