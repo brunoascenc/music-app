@@ -4,7 +4,7 @@ Elerial é um Webapp de listagem e pré-visualização de músicas.
 
 ![](src/images/elerial.png)
 
-- [ElerialApp](https://movixapp.netlify.app/)
+- [Elerial URL](https://elerialmusic.netlify.app/)
 
 ## Favoritas
 
