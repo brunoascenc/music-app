@@ -5,6 +5,7 @@ import Search from './pages/Search/Search';
 import Home from './pages/Home/Home';
 import Favorite from './pages/Favorite/Favorite';
 import SideMenu from './components/SideMenu/SideMenu';
+import MusicPlayer from './components/MusicPlayer/MusicPlayer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <SideMenu />
+      <MusicPlayer />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/search=:pathname?" component={Search} />
