@@ -4,8 +4,6 @@ Elerial é um Webapp de listagem e pré-visualização de músicas.
 
 ![](src/images/elerial.png)
 
-- [Elerial URL](https://elerialmusic.netlify.app/)
-
 ## Favoritas
 
 As músicas favoritas são salvas através do redux-persist-store.
